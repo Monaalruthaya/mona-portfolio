@@ -4505,3 +4505,7 @@ html, body, .s-pagewrap, .card, .folio-list__item {
 html, body, .s-pagewrap, .card, .folio-list__item, .s-header, .s-footer {
   transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
+.folio-list__item img {
+    border-radius: 16px; /* عدلي الرقم حسب الحدة اللي تبينها */
+    object-fit: cover;   /* يضمن إن الصورة تظل متناسقة */
+}
