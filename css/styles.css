@@ -4509,3 +4509,7 @@ html, body, .s-pagewrap, .card, .folio-list__item, .s-header, .s-footer {
     border-radius: 16px; /* عدلي الرقم حسب الحدة اللي تبينها */
     object-fit: cover;   /* يضمن إن الصورة تظل متناسقة */
 }
+.folio-list__item img {
+    border-radius: 20px !important; /* عدل الرقم حسب حدة الكروت */
+    overflow: hidden;
+}
