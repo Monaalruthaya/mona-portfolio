@@ -4806,3 +4806,69 @@ grid-template-columns: 55% 45% !important;
     height: auto !important;   /* ترجع لحجمها الطبيعي */
   }
 }
+/* === ABOUT: صورة كبيرة ومحاذاة مثالية مع النص === */
+.s-about .about-info {
+  display: grid !important;
+  grid-template-columns: minmax(320px, 520px) 1fr; /* صورة | نص */
+  align-items: stretch;        /* يخلي العمودين نفس الارتفاع */
+  column-gap: clamp(16px, 4vw, 40px);
+}
+
+/* خلّي بلوك الصورة يتمدد بارتفاع الصف */
+.s-about .about-info__pic-block {
+  align-self: stretch !important;
+  display: flex;
+}
+
+/* الصورة تملأ عمودها كاملاً (ارتفاعاً وعرضاً) */
+.s-about .about-info__pic {
+  width: 100% !important;
+  height: 100% !important;       /* أهم سطرين */
+  object-fit: cover !important;  /* تغطية أنيقة بدون تشويه */
+  border-radius: 16px;
+}
+
+/* قللي فراغ النص اللي كان مكبّر المسافة */
+.s-about .about-info__text {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* موبايل: ترتيب عمودي ومسافات منطقية */
+@media (max-width: 900px) {
+  .s-about .about-info {
+    grid-template-columns: 1fr;  /* صورة فوق، نص تحت */
+    row-gap: 18px;
+  }
+  .s-about .about-info__pic {
+    height: auto !important;     /* على الموبايل خليه حسب مقاس الصورة */
+    object-fit: contain !important;
+  }
+}
+.s-about .about-info.wide {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* عمود للصورة وعمود للنص */
+  align-items: stretch; /* يخلي الأعمدة بنفس الارتفاع */
+  gap: 2rem; /* مسافة بين النص والصورة */
+}
+
+.s-about .about-info__pic-block,
+.s-about .about-info__pic-block img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* يخلي الصورة تغطي المساحة بدون قص كبير */
+  border-radius: 10px;
+}
+
+.about-info__pic-block img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* عدّلي الرقم حسب طول النص */
+    object-fit: cover;
+}
+
+.about-info.wide {
+    display: flex;
+    align-items: center; /* يخلي النص والصورة بنفس الارتفاع */
+    gap: 30px; /* مسافة بينهم */
+}
