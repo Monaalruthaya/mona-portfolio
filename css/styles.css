@@ -4513,3 +4513,296 @@ html, body, .s-pagewrap, .card, .folio-list__item, .s-header, .s-footer {
     border-radius: 20px !important; /* عدل الرقم حسب حدة الكروت */
     overflow: hidden;
 }
+.about-section {
+  display: flex;
+  align-items: center; /* يخلي النص والزر في وسط الصورة */
+}
+.about-section {
+  display: flex;
+  align-items: center; /* يخلي النص والزر في وسط الصورة */
+}
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* مسافة بين الصورة والنص */
+}
+/* === FIX: About image + text overlap === */
+.about-info {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;   /* صورة | نص */
+  align-items: center;
+  gap: clamp(16px, 4vw, 40px);      /* مسافة مرنة بينهما */
+}
+
+.about-info__pic {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.about-info__pic img {
+  display: block;
+  width: 100%;
+  height: auto;          /* لو تبين قصّ متناسق: استبدلي بـ height: 100%; object-fit: cover; */
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.about-info__text {
+  padding: 0 !important;   /* يلغي البادينج الكبير السابق */
+  margin: 0 !important;    /* يلغي margin-left السالب */
+}
+
+.about-info__text .btn {
+  margin-top: 1rem;        /* تأكد فيه مسافة تحت النص */
+}
+
+/* موبايل: خليها عمود فوق تحت */
+@media (max-width: 900px) {
+  .about-info {
+    grid-template-columns: 1fr;   /* صورة فوق، نص تحت */
+  }
+  .about-info__text {
+    margin-top: 12px !important;
+  }
+}
+/* توازن أحلى لقسم About */
+.about-info {
+  grid-template-columns: minmax(320px, 520px) 1fr; /* الصورة أعرض شوية */
+  justify-content: center;                         /* يوسّط الشبكة داخل الصف */
+  column-gap: clamp(20px, 5vw, 56px);
+}
+
+/* خلي الصورة تتمدّد بشكل نظيف داخل عمودها */
+.about-info__pic {
+  align-self: start;          /* تبدأ من أعلى مثل النص */
+}
+
+.about-info__pic img {
+  width: 100%;
+  height: auto;               /* لو تبين قصّ متساوي استخدمي: height: 100%; object-fit: cover; */
+  display: block;
+  border-radius: 16px;
+}
+
+/* عرض موبايل: فوق/تحت وبمسافات مريحة */
+@media (max-width: 900px) {
+  .about-info {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+  .about-info__text {
+    margin-top: 4px !important;
+  }
+}
+.about-container {
+  display: flex;
+  align-items: center; /* يوسّط الصورة والنص عموديًا */
+  gap: 20px; /* مسافة بينهم */
+}
+
+.about-container img {
+  flex-shrink: 0;
+  width: 350px;
+  height: auto;
+  border-radius: 10px; /* زوايا ناعمة للصورة */
+}
+.about-info__pic-block img {
+  width: 100%;
+  max-width: 500px; /* حجم أكبر للصورة */
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .about-info__pic-block img {
+    max-width: 100%; /* تاخذ نصف الصفحة على الشاشات الكبيرة */
+  }
+}
+/* === Enlarge About image === */
+.s-about .about-info {
+  display: grid !important;
+grid-template-columns: 50% 50% !important;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+/* امنعي أي سقف لحجم الصورة */
+.s-about .about-info__pic-block img,
+.s-about .about-info__pic {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: cover;      /* أو contain لو تبينها كاملة بدون قص */
+  border-radius: 16px;
+}
+
+/* موبايل: صفّ عمودي */
+@media (max-width: 900px) {
+  .s-about .about-info {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* === About image: fill column & bigger === */
+.s-about .about-info {                /* خليه صفّين متساويين ومرتب */
+  display: grid !important;
+grid-template-columns: 55% 45% !important;
+  align-items: start;
+  gap: clamp(24px, 5vw, 64px);
+}
+
+/* أهم شيء: خلّي الصورة تتمدّد مع العمود */
+.s-about .about-info__pic,
+.s-about .about-info__pic-block img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;   /* يلغي سقف 500px السابق */
+  object-fit: cover;            /* أو contain لو تبينها كاملة بدون قص */
+  border-radius: 16px;
+}
+
+/* موبايل: عمود فوق/تحت */
+@media (max-width: 900px) {
+  .s-about .about-info {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* === ABOUT: صورة كبيرة بدون فراغ زائد === */
+#about .about-info{
+  display:grid !important;
+  grid-template-columns: 48% 1fr !important; /* صورة | نص */
+  align-items:start;
+  gap: clamp(16px, 3vw, 32px) !important;    /* مسافة معقولة بينهما */
+}
+
+/* كبّري الصورة لتملأ عمودها */
+#about .about-info__pic-block img,
+#about .about-info__pic {
+  display:block;
+  width:100% !important;
+  height:auto !important;
+  max-width:none !important;   /* يلغي سقف 500px */
+  object-fit:cover;            /* لو تبينها كاملة استبدلي بـ contain */
+  border-radius:16px;
+}
+
+/* ألغِ الحشوات التي صنعت الفراغ */
+#about .about-info__text{
+  padding:0 !important;
+  margin:0 !important;
+}
+
+/* موبايل: فوق/تحت */
+@media (max-width: 900px){
+  #about .about-info{ grid-template-columns:1fr !important; gap:18px !important; }
+}
+.about-info__pic-block {
+  display: flex;
+  align-items: center; /* يخلي الصورة والنص في نفس المستوى */
+  justify-content: center;
+}
+
+.about-info__pic {
+  width: 900%;       /* تخليها تمتد بعرض العمود */
+  max-width: 900px;  /* تحكم في الحد الأقصى لحجم الصورة */
+  height: auto;      /* عشان ما تتشوه */
+  border-radius: 10px; /* شكل ناعم */
+}
+.row.about-info {
+  gap: 0px; /* المسافة بين الصورة والنص */
+}
+/* === ABOUT – تصحيح تخطيط الصورة والنص === */
+
+/* استبدل flex تبع .row بـ grid هنا فقط */
+.s-about .about-info {
+  display: grid !important;
+  grid-template-columns: minmax(380px, 900px) 1fr; /* عمود للصورة | عمود للنص */
+  align-items: center;
+  column-gap: clamp(16px, 3vw, 32px);             /* مسافة مناسبة بينهما */
+  row-gap: 16px;
+  width: 100%;
+}
+
+/* حاوية الصورة */
+.s-about .about-info__pic-block {
+  justify-self: center;  /* يوسّط الصورة داخل عمودها */
+}
+
+/* حجم الصورة وشكلها */
+.s-about .about-info__pic-block img,
+.s-about .about-info__pic {
+  width: 100% !important;
+  max-width: 900px;      /* كبّري الحد الأقصى حسب رغبتك (مثلاً 560px) */
+  height: auto !important;
+  aspect-ratio: 16 / 9;  /* يحافظ على تناسب جميل؛ احذفيه لو مو لازم */
+  object-fit: cover;     /* قصّ بسيط بدون تمدد */
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+/* ألغِ الحشوات القديمة التي كانت تبعد النص */
+.s-about .about-info__text {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* مسافة بسيطة قبل الزر */
+.s-about .about-info__text .btn {
+  margin-top: 1rem;
+}
+
+/* موبايل: عمود فوق/تحت */
+@media (max-width: 900px) {
+  .s-about .about-info {
+    grid-template-columns: 1fr;
+  }
+  .s-about .about-info__pic-block { 
+    justify-self: start;
+  }
+}
+.about-info__pic-block img {
+  width: 100%;        /* تمديد الصورة بعرض العمود */
+  max-width: 500px;   /* حد أقصى للعرض حتى لا تكبر زيادة */
+  height: auto;       /* يحافظ على نسبة الأبعاد */
+  display: block;     /* يمنع المسافات الغريبة */
+  margin: 0 auto;     /* توسيط الصورة داخل العمود */
+}
+/* ABOUT – صورة أكبر وبنفس ارتفاع النص (ديسكتوب) */
+@media (min-width: 900px) {
+  .about-info{
+    display: grid !important;
+    grid-template-columns: 520px 1fr;   /* عمود للصورة أكبر + عمود للنص */
+    align-items: stretch !important;     /* خلّي العناصر تتمدد لنفس الارتفاع */
+    column-gap: 40px;
+  }
+
+  .about-info__pic-block{
+    display: flex; 
+    height: 100%;
+  }
+
+  .about-info__pic-block img.about-info__pic{
+    width: 100% !important;
+    height: 100% !important;     /* تمتد لنفس ارتفاع عمود النص */
+    max-width: none !important;  /* يلغي حد 500px القديم */
+    object-fit: cover !important;/* تغطي المساحة بدون تشويه */
+    border-radius: 16px;
+  }
+
+  .about-info__text{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/* موبايل/تابلت: صورة فوق والنص تحت بشكل عادي */
+@media (max-width: 899.98px) {
+  .about-info{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+  .about-info__pic-block img.about-info__pic{
+    height: auto !important;   /* ترجع لحجمها الطبيعي */
+  }
+}
