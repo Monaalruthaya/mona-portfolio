@@ -4872,3 +4872,87 @@ grid-template-columns: 55% 45% !important;
     align-items: center; /* يخلي النص والصورة بنفس الارتفاع */
     gap: 30px; /* مسافة بينهم */
 }
+/* ==== About Image Alignment & Size ==== */
+#about .about-info {
+  display: grid !important;
+  grid-template-columns: 520px 1fr; /* خلي الصورة بعرض ثابت والنص بيملا الباقي */
+  align-items: center;
+  column-gap: clamp(16px, 3vw, 40px);
+  width: 100%;
+}
+
+#about .about-info__pic-block {
+  align-self: center;
+}
+
+#about .about-info__pic {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 520px !important;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+#about .about-info__text {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+  #about .about-info {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+}
+/* تكبير عرض النص وتقريبه من الصورة */
+#about .about-info {
+  display: grid;
+  grid-template-columns: 900px 1fr; /* العمود الأول للصورة والثاني للنص */
+  column-gap: 40px; /* المسافة بين الصورة والنص */
+}
+
+#about .about-info__text {
+  max-width: 900px; /* عرض النص أكبر */
+}
+
+#about .about-info__text p {
+  line-height: 1.6;
+}
+.about-info__text {
+    max-width: 100%; /* يخلي المحتوى يستخدم المساحة بالكامل */
+}
+
+@media (min-width: 1024px) {
+    .about-info__text {
+        padding-right: 0; /* يقلل المسافة يمين */
+        padding-left: 20px; /* مسافة بسيطة بين الصورة والنص */
+    }
+
+    .about-info__text p {
+        max-width: 5000%; /* يخلي النص يمتد أكثر قبل ما ينزل للسطر الجديد */
+    }
+
+    .about-info__text .btn {
+        max-width: 900px; /* عرض أكبر للزر */
+    }
+}
+.about-info__text {
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .about-info .column.lg-6:last-child {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+
+    .about-info__text p {
+        max-width: 90%;
+    }
+
+    .about-info__text .btn {
+        max-width: 300px;
+    }
+}
